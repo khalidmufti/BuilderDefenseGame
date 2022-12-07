@@ -17,7 +17,7 @@ public class ResourceManager : MonoBehaviour
 
         _resourceAmountDictionary = new Dictionary<ResourceTypeSO, int>();
 
-        ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+        ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(nameof(ResourceTypeListSO));
 
         foreach (ResourceTypeSO resourceType in resourceTypeList.NaturalResources)
         {

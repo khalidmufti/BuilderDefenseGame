@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f3a65fc65f8eb341b0f66e69b77756e, type: 3}
-  m_Name: WoodHarvester
+  m_Name: GoldHarvester
   m_EditorClassIdentifier: 
-  BuildingName: Wood Harvester
-  Prefab: {fileID: 5617660617987274804, guid: a9f6ae42e498d704cb4efd923b758949, type: 3}
+  BuildingName: Gold Harvester
+  Prefab: {fileID: 5617660617987274804, guid: 5ff58b92dbdd1e8458c6c318cf31748e, type: 3}
   ResourceGeneratorData:
-    TimerMax: 0.5
-    ResourceType: {fileID: 11400000, guid: 1ffc6f6c2791b934a97825970ad26689, type: 2}
+    TimerMax: 2
+    ResourceType: {fileID: 11400000, guid: e568250a4fefabe4ca0f53a807bebe0c, type: 2}
     ResourceDetectionRadius: 7
-    MaxResourceNodes: 7
-  Sprite: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
+    MaxResourceNodes: 3
+  Sprite: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
   MinConstructionRadius: 7

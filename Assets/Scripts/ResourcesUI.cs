@@ -11,7 +11,7 @@ public class ResourcesUI : MonoBehaviour
 
     private void Awake()
     {
-        _resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+        _resourceTypeList = Resources.Load<ResourceTypeListSO>(nameof(ResourceTypeListSO));
         _resourceTypeTransformDicitonary = new Dictionary<ResourceTypeSO, Transform>();            
 
         Transform resourceTemplate = transform.Find("resourceTemplate");
