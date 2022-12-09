@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -10,16 +11,9 @@ public class ResourceGenerator : MonoBehaviour
     private float _timer;
     private float _timerMax;
 
-    private void Awake()
+    public static int GetNearbyResourceAmount(ResourceGeneratorData resourceGeneratorData, Vector3 position)
     {
-        _resourceGeneratorData =  GetComponent<BuildingTypeHolder>().BuildingType.ResourceGeneratorData;
-        _timerMax = _resourceGeneratorData.TimerMax;
-    }
-
-    private void Start()
-    {
-
-        Collider2D[] col2DArray = Physics2D.OverlapCircleAll(transform.position, _resourceGeneratorData.ResourceDetectionRadius);
+        Collider2D[] col2DArray = Physics2D.OverlapCircleAll(position, resourceGeneratorData.ResourceDetectionRadius);
 
         int nearbyResourceAmount = 0;
         foreach (Collider2D col2D in col2DArray)
@@ -28,12 +22,25 @@ public class ResourceGenerator : MonoBehaviour
             if (resourceNode != null)
             {
                 //It is a resource node
-                if (resourceNode.ResourceType == _resourceGeneratorData.ResourceType)
+                if (resourceNode.ResourceType == resourceGeneratorData.ResourceType)
                     nearbyResourceAmount++;
             }
         }
 
-        nearbyResourceAmount = Mathf.Clamp(nearbyResourceAmount, 0, _resourceGeneratorData.MaxResourceNodes);
+        nearbyResourceAmount = Mathf.Clamp(nearbyResourceAmount, 0, resourceGeneratorData.MaxResourceNodes);
+        return nearbyResourceAmount;
+    }
+
+    private void Awake()
+    {
+        _resourceGeneratorData =  GetComponent<BuildingTypeHolder>().BuildingType.ResourceGeneratorData;
+        _timerMax = _resourceGeneratorData.TimerMax;
+    }
+
+    private void Start()
+    {
+        int nearbyResourceAmount = GetNearbyResourceAmount(_resourceGeneratorData, transform.position);
+
         if (nearbyResourceAmount == 0)
         {
             //No resource nodes nearby so disable resource generator
@@ -49,7 +56,7 @@ public class ResourceGenerator : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update()
     {
         _timer -= Time.deltaTime;
         if (_timer  <= 0f)
@@ -57,5 +64,20 @@ public class ResourceGenerator : MonoBehaviour
             _timer += _timerMax;
             ResourceManager.Instance.AddResource(_resourceGeneratorData.ResourceType, 1);
         }
+    }
+
+    public ResourceGeneratorData GetResourceGeneratorData()
+    {
+        return _resourceGeneratorData;
+    }
+
+    public float GetTimerNormalized ()
+    {
+        return _timer / _timerMax;
+    }
+
+    public float GetAmountGeneratedPerSecond()
+    {
+        return 1 / _timerMax;
     }
 }
