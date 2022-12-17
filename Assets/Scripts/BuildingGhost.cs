@@ -42,17 +42,19 @@ public class BuildingGhost : MonoBehaviour
 
         transform.position = UtilsClass.GetMouseWorldPosition();
 
-        // TODO almost the same as in Update of buildingManager
-        // this is bad because we repeat ourself twice in update method
+        if (buildingManager.GetActiveBuildingType() != null) 
+        {
+            if (buildingManager.CanSpawnBuilding(buildingManager.GetActiveBuildingType(), transform.position, out string errorMessage)
+                && ResourceManager.Instance.CanAfford(buildingManager.GetActiveBuildingType().ConstructionResourceCostArray))
+            {
+                _spriteRenderer.color = new Color(0f, 1f, 0f, 0.5f);
+            }
+            else
+            {
+                _spriteRenderer.color = new Color(1f, 0f, 0f, 0.5f);
+            }
+        }
 
-        if ((buildingManager.GetActiveBuildingType() != null) && !buildingManager.CanSpawnBuilding(buildingManager.GetActiveBuildingType(), transform.position))
-        {
-            _spriteRenderer.color = new Color(1f, 0f, 0f, 0.5f);
-        }
-        else
-        {
-            _spriteRenderer.color = new Color(0f, 1f, 0f, 0.5f);
-        }
     }
 
     private void Show(Sprite ghostSprite)
