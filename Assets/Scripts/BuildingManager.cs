@@ -14,6 +14,8 @@ public class BuildingManager : MonoBehaviour
     private BuildingTypeListSO _buildingTypeList;
     private BuildingTypeSO _activeBuildingType;
 
+    [SerializeField] private Building _hqBuilding; 
+
     private void Awake()
     {
         Instance = this;
@@ -116,10 +118,15 @@ public class BuildingManager : MonoBehaviour
     {
         return _activeBuildingType;
     }
+
+    public Building getHQBuilding()
+    {
+        return _hqBuilding;
+    }
+
 }
 
 public class OnActiveBuildingTypeChangeEventArgs : EventArgs
 {
     public BuildingTypeSO ActiveBuildingType;
 }
-
