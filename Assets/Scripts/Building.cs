@@ -6,12 +6,16 @@ public class Building : MonoBehaviour
 {
     private BuildingTypeSO _buildingType;
     private HealthSystem _healthSystem;
+    private Transform _buildingDemolishBtn;
 
     private void Awake()
     {
         _buildingType = GetComponent<BuildingTypeHolder>().BuildingType;
         _healthSystem = GetComponent<HealthSystem>();
         _healthSystem.SetHealthAmountMax(_buildingType.HealthAmountMax, true);
+        
+        _buildingDemolishBtn = transform.Find("pfBuildingDemolishButton");
+        _buildingDemolishBtn?.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -22,5 +26,15 @@ public class Building : MonoBehaviour
     private void _healthSystem_OnDied(object sender, System.EventArgs e)
     {
         Destroy(gameObject);
+    }
+
+    private void OnMouseEnter()
+    {
+        _buildingDemolishBtn?.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        _buildingDemolishBtn?.gameObject.SetActive(false);
     }
 }

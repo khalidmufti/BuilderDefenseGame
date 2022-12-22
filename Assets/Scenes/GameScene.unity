@@ -37287,11 +37287,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5066458268672263443, guid: d34fdd77795a3684abb2553d741074c8, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5066458268672263443, guid: d34fdd77795a3684abb2553d741074c8, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1109991333
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5617660617987274804, guid: d34fdd77795a3684abb2553d741074c8, type: 3}
       propertyPath: m_RootOrder
