@@ -22,7 +22,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
-        _targetTransform = BuildingManager.Instance.getHQBuilding().transform;
+        if (BuildingManager.Instance.getHQBuilding() != null)
+        {
+            _targetTransform = BuildingManager.Instance.getHQBuilding().transform;
+        }
+
         _healthSystem = GetComponent<HealthSystem>();
 
         _healthSystem.OnDied += _healthSystem_OnDied;
@@ -109,7 +113,10 @@ public class Enemy : MonoBehaviour
         if (_targetTransform == null)
         {
             //Found no targets witih range
-            _targetTransform = BuildingManager.Instance.getHQBuilding().transform;
+            if (BuildingManager.Instance.getHQBuilding() != null)  //HQ was not destroyed
+            {
+                _targetTransform = BuildingManager.Instance.getHQBuilding().transform;
+            }
         }
     }
 }
