@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     private BuildingTypeSO _buildingType;
     private HealthSystem _healthSystem;
     private Transform _buildingDemolishBtn;
+    private Transform _buildingRepairBtn;
 
     private void Awake()
     {
@@ -16,11 +17,28 @@ public class Building : MonoBehaviour
         
         _buildingDemolishBtn = transform.Find("pfBuildingDemolishButton");
         _buildingDemolishBtn?.gameObject.SetActive(false);
+        _buildingRepairBtn = transform.Find("pfBuildingRepairButton");
+        _buildingRepairBtn?.gameObject.SetActive(false);
     }
 
     private void Start()
     {
         _healthSystem.OnDied += _healthSystem_OnDied;
+        _healthSystem.OnDamaged += _healthSystem_OnDamaged;
+        _healthSystem.OnHealed += _healthSystem_OnHealed;
+    }
+
+    private void _healthSystem_OnHealed(object sender, System.EventArgs e)
+    {
+        if (_healthSystem.isFullHealth())
+        {
+            HideBuildingRepairButton();
+        }
+    }
+
+    private void _healthSystem_OnDamaged(object sender, System.EventArgs e)
+    {
+        ShowBuildingRepairButton();        
     }
 
     private void _healthSystem_OnDied(object sender, System.EventArgs e)
@@ -37,4 +55,15 @@ public class Building : MonoBehaviour
     {
         _buildingDemolishBtn?.gameObject.SetActive(false);
     }
+
+    private void ShowBuildingRepairButton()
+    {
+        _buildingRepairBtn?.gameObject.SetActive(true);
+    }
+
+    private void HideBuildingRepairButton()
+    {
+        _buildingRepairBtn?.gameObject.SetActive(false);
+    }
+
 }
