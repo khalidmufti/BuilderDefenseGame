@@ -36,6 +36,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(Sound sound)
     {
+        if (sound == Sound.GameOver)
+        {
+            _audioSource.Stop();
+        }
         _audioSource.PlayOneShot(_soundAudioClipDictionary[sound]);
     }
 }
