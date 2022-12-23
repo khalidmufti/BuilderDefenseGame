@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &6221806013554377683
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 6952564958717466300}
   - component: {fileID: 8520324479838962231}
   - component: {fileID: 4964631150668172460}
-  - component: {fileID: 6124845864828173838}
   - component: {fileID: 1646611221636759925}
   m_Layer: 0
   m_Name: pfGoldResourceNode
@@ -145,20 +144,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
---- !u!114 &6124845864828173838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6221806013554377683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8937ddcfd2ebac45981278fb04ca8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isRunOnce: 1
-  _precisionMultiplier: 5
 --- !u!61 &1646611221636759925
 BoxCollider2D:
   m_ObjectHideFlags: 0

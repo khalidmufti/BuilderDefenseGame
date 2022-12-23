@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1531106051700660904}
   - component: {fileID: 2360862260203054676}
-  - component: {fileID: 3971160019932979649}
   - component: {fileID: -8919950723271153507}
   m_Layer: 0
   m_Name: pfBush_4
@@ -85,21 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &3971160019932979649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3486545562219304453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8937ddcfd2ebac45981278fb04ca8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isRunOnce: 1
-  _precisionMultiplier: 5
+  m_SpriteSortPoint: 1
 --- !u!210 &-8919950723271153507
 SortingGroup:
   m_ObjectHideFlags: 0

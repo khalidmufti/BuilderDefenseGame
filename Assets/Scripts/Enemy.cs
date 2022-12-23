@@ -30,13 +30,20 @@ public class Enemy : MonoBehaviour
         _healthSystem = GetComponent<HealthSystem>();
 
         _healthSystem.OnDied += _healthSystem_OnDied;
+        _healthSystem.OnDamaged += _healthSystem_OnDamaged;
 
         //Add some randomness so each enemy is not searching at the same time in a given frame
         _lookforTargetTimer = Random.Range(0f, _lookforTargetTimerMax);
     }
 
+    private void _healthSystem_OnDamaged(object sender, System.EventArgs e)
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+    }
+
     private void _healthSystem_OnDied(object sender, System.EventArgs e)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
         Destroy(gameObject);
     }
 

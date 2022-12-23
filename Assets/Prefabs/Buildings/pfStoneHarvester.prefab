@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 6689511889042557281}
   - component: {fileID: 6237219683411249409}
   - component: {fileID: 5692666204168628911}
-  - component: {fileID: -5825665568790520284}
   - component: {fileID: 3120715967454829519}
   - component: {fileID: 2248571652838124357}
   - component: {fileID: -3546302878762358163}
@@ -164,20 +163,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-5825665568790520284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8688699468464628952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8937ddcfd2ebac45981278fb04ca8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isRunOnce: 1
-  _precisionMultiplier: 5
 --- !u!61 &3120715967454829519
 BoxCollider2D:
   m_ObjectHideFlags: 0
