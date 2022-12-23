@@ -221,6 +221,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5617660617987274804}
     m_Modifications:
+    - target: {fileID: 2043955687354646454, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
+      propertyPath: m_Size.x
+      value: 2.194737
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043955687354646454, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8210526
+      objectReference: {fileID: 0}
     - target: {fileID: 3565715747615973154, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
       propertyPath: m_Name
       value: pfWoodHarvesterVisual
@@ -268,6 +276,22 @@ PrefabInstance:
     - target: {fileID: 3565715747615973155, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868042314099822888, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868042314099822888, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210512047125488380, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210512047125488380, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ddac80caf74a6428bf2b24a8e001e0, type: 3}
