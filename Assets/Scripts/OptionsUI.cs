@@ -58,6 +58,7 @@ public class OptionsUI : MonoBehaviour
     {
         gameObject.SetActive( !gameObject.activeSelf );  
 
+        //Pause the game when Options Menu is active, othwerwise resume game
         if (gameObject.activeSelf)
         {
             Time.timeScale = 0f;
