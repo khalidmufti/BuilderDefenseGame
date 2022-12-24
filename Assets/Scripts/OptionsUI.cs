@@ -39,7 +39,11 @@ public class OptionsUI : MonoBehaviour
             UpdateText();
         });
 
-        transform.Find("mainMenuBtn").GetComponent<Button>().onClick.AddListener(() => { });
+        transform.Find("mainMenuBtn").GetComponent<Button>().onClick.AddListener(() => 
+        {
+            Time.timeScale = 1f;
+            GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene);
+        });
     }
 
     private void Start()
