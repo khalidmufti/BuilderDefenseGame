@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SoundManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource _audioSource;
     private Dictionary<Sound, AudioClip> _soundAudioClipDictionary;
+    private float _volume = 0.5f;
 
     private void Awake()
     {
@@ -40,6 +42,23 @@ public class SoundManager : MonoBehaviour
         {
             _audioSource.Stop();
         }
-        _audioSource.PlayOneShot(_soundAudioClipDictionary[sound]);
+        _audioSource.PlayOneShot(_soundAudioClipDictionary[sound], _volume);
+    }
+
+    public void IncreaseVolume ()
+    {
+        _volume += 0.1f;
+        _volume = Mathf.Clamp01(_volume);
+    }
+
+    public void DecreaseVolume()
+    {
+        _volume -= 0.1f;
+        _volume = Mathf.Clamp01(_volume);
+    }
+
+    public float GetVolume ()
+    {
+        return _volume;
     }
 }
