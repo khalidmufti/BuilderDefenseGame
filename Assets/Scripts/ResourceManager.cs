@@ -13,8 +13,6 @@ public class ResourceManager : MonoBehaviour
 
     private Dictionary<ResourceTypeSO, int> _resourceAmountDictionary;
 
-
-
     private void Awake()
     {
         Instance = this;
