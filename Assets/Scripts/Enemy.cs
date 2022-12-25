@@ -39,11 +39,14 @@ public class Enemy : MonoBehaviour
     private void _healthSystem_OnDamaged(object sender, System.EventArgs e)
     {
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+        CinemachineShake.Instance.ShakeCamera(5f, 0.1f);
     }
 
     private void _healthSystem_OnDied(object sender, System.EventArgs e)
     {
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+        CinemachineShake.Instance.ShakeCamera(7f, 0.15f);
+        Instantiate(Resources.Load<Transform>("pfEnemyDieParticles"), transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -62,7 +65,7 @@ public class Enemy : MonoBehaviour
             //Collided with a building
             HealthSystem healthSystem = building.GetComponent<HealthSystem>();
             healthSystem.Damage(10);
-            Destroy(gameObject);
+            _healthSystem.Damage(999); // Kill enemy, if destory then particles will not play
         }
     }
 

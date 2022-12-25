@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0f2a2cff6ca3f40803ba2743458d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootTimerMax: 0.3
+  _shootTimerMax: 0.2
 --- !u!61 &5864055610393064856
 BoxCollider2D:
   m_ObjectHideFlags: 0

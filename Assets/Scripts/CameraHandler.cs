@@ -7,6 +7,8 @@ using Cinemachine;
 public class CameraHandler : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera _vCamera;
+    [SerializeField] private PolygonCollider2D cameraBoundsCollider2D;
+
     private float _orthographicSize;
     private float _targetOrthographicSize;
 
@@ -29,7 +31,12 @@ public class CameraHandler : MonoBehaviour
 
         Vector3 moveDir = new Vector3(x, y).normalized;
         float moveSpeed = 30f;
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
+
+        Vector3 movementVector = transform.position + (moveDir * moveSpeed * Time.deltaTime);
+        if (cameraBoundsCollider2D.bounds.Contains(movementVector))
+        {
+            transform.position = movementVector;
+        }
     }
 
     private void HandleZoom()
