@@ -6,8 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public static Enemy Create (Vector3 position)
     {
-        Transform pfEnemy = Resources.Load<Transform>(nameof(pfEnemy));
-        Transform enemyTransform = Instantiate(pfEnemy, position, Quaternion.identity);
+        Transform enemyTransform = Instantiate(GameAssets.Instance.pfEnemy, position, Quaternion.identity);
 
         Enemy enemy = enemyTransform.GetComponent<Enemy>();
         return enemy;
@@ -39,11 +38,14 @@ public class Enemy : MonoBehaviour
     private void _healthSystem_OnDamaged(object sender, System.EventArgs e)
     {
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+        CinemachineShake.Instance.ShakeCamera(5f, 0.1f);
     }
 
     private void _healthSystem_OnDied(object sender, System.EventArgs e)
     {
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+        CinemachineShake.Instance.ShakeCamera(7f, 0.15f);
+        Instantiate(GameAssets.Instance.pfEnemyDieParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour
             //Collided with a building
             HealthSystem healthSystem = building.GetComponent<HealthSystem>();
             healthSystem.Damage(10);
-            Destroy(gameObject);
+            _healthSystem.Damage(999); // Kill enemy, if destory then particles will not play
         }
     }
 

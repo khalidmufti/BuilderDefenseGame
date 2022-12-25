@@ -96,6 +96,18 @@ public class BuildingManager : MonoBehaviour
                 }
             }
         }
+        
+        //Not allow placement of building ig no nearby resources for that building type
+        if (buildingType.isGenerateResource)
+        {
+            ResourceGeneratorData resourceData = buildingType.ResourceGeneratorData;
+            int nearbyResourceAmount = ResourceGenerator.GetNearbyResourceAmount(resourceData, position);
+            if (nearbyResourceAmount == 0)
+            {
+                errorMessage = "No needed resources nearby!";
+                return false;
+            }
+        }
 
         //Rule #3:  Make sure building is not placed too far from other buildings - rule building within max construction radius of other buildings
         float maxConstructionDistance = 25f;
